@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t lundidocker/docker-react -f dev.Dockerfile .
+
+script:
+  - docker run lundidocker/docker-react npm run test -- --coverage
